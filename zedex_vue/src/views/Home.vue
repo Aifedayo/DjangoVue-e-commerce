@@ -6,7 +6,7 @@
           Welcome to zedEX
         </p>
         <p class="subtitle">
-          Your first and best products delivery store
+          <em>Your first and best products delivery store</em>
         </p>
       </div>
     </section>
@@ -36,12 +36,35 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import axios from 'axios'
 
 export default {
   name: 'Home',
+  data() {
+    return {
+      latestProducts: []
+    }
+  },
   components: {
+  },
+
+  mounted() {
+    this.getLatestProducts()
+  },
+
+  methods: {
+    getLatestProducts() {
+      axios
+        .get('/api/v1/latest-products/')
+        .then(response => {
+          this.latestProducts = response.data
+        })
+        .catch(error => {
+          console.log(error)
+        })
+    }
   }
 }
 </script>
+
+
