@@ -10,3 +10,4 @@ class LatestProductsList(APIView):
     def get(self, request, format=None):
         products = Product.objects.all()[:5]
         serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
