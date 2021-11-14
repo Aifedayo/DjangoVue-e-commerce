@@ -17,18 +17,20 @@
       </div>
 
       <div 
-        class="column is-3"
+        class="column is-4 mb-4"
         v-for="product in latestProducts"
         v-bind:key="product.id"
       >
         <div class="box">
-          <figure class="image mb-4">
+          <figure class="image mb-3">
             <img :src="product.get_thumbnail">
           </figure>
 
           <h3 class="is-size-4">{{ product.name }}</h3>
           <p class="is-size-6 has-text-grey">${{ product.price }}</p>
+          <router-link v-bind:to="product.get_absolute_url" class="button is-info is-light mt-4">
             View details
+          </router-link>
         </div>
       </div>
     </div>
@@ -50,11 +52,15 @@ export default {
 
   mounted() {
     this.getLatestProducts()
+
+    document.title = 'Home | zedEx'
   },
 
   methods: {
-    getLatestProducts() {
-      axios
+    async getLatestProducts() {
+      this.$store.commit ('setIsLoading', true)
+
+      await axios
         .get('/api/v1/latest-products/')
         .then(response => {
           this.latestProducts = response.data
@@ -62,6 +68,9 @@ export default {
         .catch(error => {
           console.log(error)
         })
+      
+      this.$store.commit ('setIsLoading', false)
+
     }
   }
 }
