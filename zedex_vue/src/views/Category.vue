@@ -5,23 +5,11 @@
                 <h2 class="is-size-2 has-text-centered">{{ category.name }}</h2>
             </div>
 
-            <div 
-                class="column is-4 mb-4"
+            <ProductBox
                 v-for="product in category.products"
                 v-bind:key="product.id"
-            >
-                <div class="box">
-                <figure class="image mb-3">
-                    <img :src="product.get_thumbnail">
-                </figure>
-
-                <h3 class="is-size-4">{{ product.name }}</h3>
-                <p class="is-size-6 has-text-grey">${{ product.price }}</p>
-                <router-link v-bind:to="product.get_absolute_url" class="button is-info is-light mt-4">
-                    View details
-                </router-link>
-                </div>
-            </div>
+                v-bind:product="product"
+            />
         </div>
     </div>
 </template>
@@ -29,6 +17,8 @@
 <script>
 import axios from 'axios'
 import { toast } from 'bulma-toast'
+
+import ProductBox from '@/components/ProductBox'
 
 export default {
     name: 'Category',
@@ -40,8 +30,20 @@ export default {
         }
     },
 
+    components: {
+        ProductBox
+    },
+
     mounted() {
         this.getCategory()
+    },
+
+    watch: {
+        $route(to, from) {
+            if (to.name === 'Category') {
+                this.getCategory()
+            }
+        }
     },
 
     methods: {
