@@ -30,12 +30,21 @@ export default {
         },
         decrementQuantity(item) {
             item.quantity -= 1
+
+            if (item.quantity === 0) {
+                this.$emit('removeFromCart', item)
+            }
+
             this.updateCart()
         },
         incrementQuantity(item) {
             item.quantity += 1
             this.updateCart()
-        }
+        },
+        updateCart() {
+            localStorage.setItem('cart', JSON.stringify(this.$store.state.cart))
+        },
+        
     }
 }
 </script>
