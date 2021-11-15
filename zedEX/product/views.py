@@ -3,6 +3,7 @@ from django.http import Http404
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.decorators import api_view
 
 from .models import Category, Product
 from .serializers import ProductSerializer, CategorySerializer
@@ -39,3 +40,8 @@ class CategoryDetail(APIView):
         serializer = CategorySerializer(category)
         return Response(serializer.data)
 
+
+#using a decorator
+@api_view(['POST'])
+def search(request):
+    query = request.data.get('query', '')
