@@ -77,9 +77,5 @@ export default {
 </script>
 
 <style scoped>
-  .image {
-    margin-top: -1.25rem;
-    margin-left: -1.25rem;
-    margin-right: -1.25rem;
-  }
+  
 </style>

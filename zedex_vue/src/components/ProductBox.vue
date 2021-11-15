@@ -14,5 +14,10 @@
 </template>
 
 <script>
-
+export default {
+    name: 'ProductBox',
+    props: {
+        product: Object
+    }
+}
 </script>
