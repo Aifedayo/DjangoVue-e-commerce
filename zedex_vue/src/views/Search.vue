@@ -34,6 +34,21 @@ export default {
 
     mounted() {
         document.title = 'Search | zedEx'
+
+        let uri = window.location.search.substring(1)
+        let params = new URLSearchParams(uri)
+
+        if (params.get('query')) {
+            this.query = params.get('query')
+
+            this.performSearch()
+        }
+    },
+
+    methods: {
+        performSearch() {
+            
+        }
     }
 }
 </script>
