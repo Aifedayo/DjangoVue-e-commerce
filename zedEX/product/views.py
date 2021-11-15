@@ -30,7 +30,7 @@ class ProductDetail(APIView):
 class CategoryDetail(APIView):
     def get_object(self, category_slug):
         try:
-            return Category.objects.filter(slug=category_slug)
+            return Category.objects.get(slug=category_slug)
         except Category.DoesNotExist:
             raise Http404
 
