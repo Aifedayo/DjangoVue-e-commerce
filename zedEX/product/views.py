@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import Http404
+from django.db.models import Q
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -45,3 +46,9 @@ class CategoryDetail(APIView):
 @api_view(['POST'])
 def search(request):
     query = request.data.get('query', '')
+
+    if query:
+        products = Product.objects.filter(
+            Q(name__icontains=query) | 
+            Q(description__icontains=query)
+        )
