@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <section class="hero is-medium is-dark mb-6">
-      <div class="hero-body has-text-centered">
+    <section class="hero is-medium is-warning mb-6">
+      <div class="hero-body">
         <p class="title mb-6">
           Welcome to zedEX
         </p>

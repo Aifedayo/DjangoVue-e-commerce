@@ -1,6 +1,6 @@
 <template>
   <div id="wrapper">
-    <nav class="navbar is-dark">
+    <nav class="navbar is-dark is-fixed-top">
       <div class="navbar-brand">
         <router-link to="/" class="navbar-item"><strong>zedEx</strong></router-link>
         
