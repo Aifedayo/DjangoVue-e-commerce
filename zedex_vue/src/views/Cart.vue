@@ -32,7 +32,8 @@
                 <strong>${{ cartTotalPrice.toFixed(2) }}</strong>, {{ cartTotalLength }} items
 
                 <hr>
-                
+                <router-link to="/cart/checkout" class="button is-dark">Proceed to checkout</router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -64,7 +65,13 @@ export default {
             return this.cart.items.reduce((acc, curVal) => {
                 return acc += curVal.quantity
             }, 0)
-        }
+        },
+
+        cartTotalPrice() {
+            return this.cart.items.reduce((acc, curVal)=> {
+                return acc += curVal.product.price * curVal.quantity
+            }, 0)
+        },
     }
 }
 </script>
