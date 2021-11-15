@@ -8,7 +8,7 @@
             <a @click="incrementQuantity(item)"> + </a>
         </td>
         <td>${{ getItemTotal(item).toFixed(2) }}</td>
-        <td><button class="delete"></button></td>
+        <td><button class="delete" @click="removeFromCart(item)"></button></td>
     </tr>
 </template>
 
@@ -44,7 +44,11 @@ export default {
         updateCart() {
             localStorage.setItem('cart', JSON.stringify(this.$store.state.cart))
         },
-        
+        removeFromCart(item) {
+            this.$emit('removeFromCart', item)
+
+            this.updateCart()
+        },
     }
 }
 </script>
