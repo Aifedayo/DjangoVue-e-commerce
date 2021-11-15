@@ -26,6 +26,13 @@
                 </table>
                 <p v-else>You do not have any products in your cart ... </p>
             </div>
+
+            <div class="column is-12 box">
+                <h2 class="subtitle">Summary</h2>
+                <strong>${{ cartTotalPrice.toFixed(2) }}</strong>, {{ cartTotalLength }} items
+
+                <hr>
+                
         </div>
     </div>
 </template>
