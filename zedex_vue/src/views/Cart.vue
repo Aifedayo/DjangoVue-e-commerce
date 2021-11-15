@@ -50,6 +50,14 @@ export default {
 
     mounted() {
         this.cart = this.$store.state.cart
+    },
+
+    computed: {
+        cartTotalLength() {
+            return this.cart.items.reduce((acc, curVal) => {
+                return acc += curVal.quantity
+            }, 0)
+        }
     }
 }
 </script>
