@@ -52,3 +52,5 @@ def search(request):
             Q(name__icontains=query) | 
             Q(description__icontains=query)
         )
+        serializer = ProductSerializer(products, many=True)
+        return Response(serializer.data)
