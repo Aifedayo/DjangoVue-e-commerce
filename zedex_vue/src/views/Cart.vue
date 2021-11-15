@@ -2,7 +2,7 @@
     <div class="page-cart">
         <div class="columns is-multiline">
             <div class="column is-12">
-                <h1 class="title">Cart</h1>
+                <h1 class="title my-5">Cart</h1>
             </div>
 
             <div class="column is-12 box">
@@ -39,13 +39,17 @@ export default {
     components: {
         CartItem
     },
-    
+
     data() {
         return {
             cart: {
                 items: []
             }
         }
+    },
+
+    mounted() {
+        this.cart = this.$store.state.cart
     }
 }
 </script>
