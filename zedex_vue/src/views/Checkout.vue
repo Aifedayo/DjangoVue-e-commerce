@@ -35,7 +35,26 @@ export default {
         this.cart = this.$store.state.cart
     },
 
-    
+    methods: {
+        getItemTotal(item) {
+            return item.quality * item.product.price
+        },
+    },
+
+    computed: {
+        cartTotalLength() {
+            return this.cart.items.reduce((acc, curVal) => {
+                return acc += curVal.quantity
+            }, 0)
+        },
+
+        cartTotalPrice() {
+            return this.cart.items.reduce((acc, curVal)=> {
+                return acc += curVal.product.price * curVal.quantity
+            }, 0)
+        },
+    }
+
 }
 </script>
 
