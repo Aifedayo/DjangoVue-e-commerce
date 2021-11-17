@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
     name: 'MyAccount',
 
@@ -26,7 +28,7 @@ export default {
             
             this.$store.commit('removeToken')
 
-            this.$routr.push('/')
+            this.$router.push('/')
         }
     }
 }
