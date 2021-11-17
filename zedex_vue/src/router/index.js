@@ -68,4 +68,10 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requireLogin) & !store.state.isAuthenticated) {
+    
+  }
+})
+
 export default router
