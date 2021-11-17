@@ -2,7 +2,7 @@
     <div class="page-content">
         <div class="columns is-multiline">
             <div class="column is-12">
-                <h1 class="title">Checkout</h1>
+                <h1 class="title my-5">Checkout</h1>
             </div>
 
             <div class="column is-12 box">
@@ -17,11 +17,11 @@
                     </thead>
                     <tbody>
                         <tr
-                            v-for="item in cart.item"
+                            v-for="item in cart.items"
                             v-bind:key="item.product.id"
                         >
                             <td>{{ item.product.name }}</td>
-                            <td>{{ item.product.price }}</td>
+                            <td>${{ item.product.price }}</td>
                             <td>{{ item.quantity }}</td>
                             <td>${{ getItemTotal(item).toFixed(2) }}</td>
                         </tr>
@@ -34,6 +34,34 @@
                         </tr>
                     </tfoot>
                 </table>
+            </div>
+
+            <div class="column is-12 box">
+                <h2 class="subtitle my-5">Shipping address</h2>
+
+                <h4 class="has-text-grey mb-4">* All fields are required</h4>
+                <div class="columns is-multiline">
+                    <div class="column is-6">
+                        <div class="field">
+                            <label>First name </label>
+                            <div class="control">
+                                <input type="text" class="input" v-model="first_name">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Last name </label>
+                            <div class="control">
+                                <input type="text" class="input" v-model="last_name">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>E-mail </label>
+                            <div class="control">
+                                <input type="email" class="input" v-model="email">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -71,7 +99,7 @@ export default {
 
     methods: {
         getItemTotal(item) {
-            return item.quality * item.product.price
+            return item.quantity * item.product.price
         },
     },
 
@@ -84,6 +112,7 @@ export default {
 
         cartTotalPrice() {
             return this.cart.items.reduce((acc, curVal)=> {
+                console.log(curVal.product.price);
                 return acc += curVal.product.price * curVal.quantity
             }, 0)
         },
