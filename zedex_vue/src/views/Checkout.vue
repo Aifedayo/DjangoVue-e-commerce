@@ -27,7 +27,15 @@ export default {
             place: '',
             errors: []
         }
-    }
+    },
+
+    mounted() {
+        document.title = 'Checkout | zedEX'
+
+        this.cart = this.$store.state.cart
+    },
+
+    
 }
 </script>
 
