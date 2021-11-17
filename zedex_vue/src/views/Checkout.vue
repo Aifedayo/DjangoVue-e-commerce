@@ -67,6 +67,39 @@
                             </div>
                         </div>
                     </div>
+                    <div class="column is-6">
+                        <div class="field">
+                            <label>Address</label>
+                            <div class="control">
+                                <input type="text" class="input" v-model="address">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Zip Code</label>
+                            <div class="control">
+                                <input type="text" class="input" v-model="zipcode">
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label>Place</label>
+                            <div class="control">
+                                <input type="text" class="input" v-model="place">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="notification is-danger mt-4" v-if="errors.length">
+                        <p v-for="error in errors" v-bind:key="error">{{ error }}</p>
+                    </div>
+
+                    <hr>
+                </div>
+                <div id="card-element" class="mb-5">
+
+                    <template v-if="cartTotalLength">
+                        <hr>
+                        <button class="button is-dark m-3" @click="submitForm">Pay with Stripe</button>
+                    </template>
                 </div>
             </div>
         </div>
@@ -91,7 +124,7 @@ export default {
             email: '',
             phone: '',
             address: '',
-            zipcodes: '',
+            zipcode: '',
             place: '',
             errors: []
         }
@@ -107,6 +140,17 @@ export default {
         getItemTotal(item) {
             return item.quantity * item.product.price
         },
+
+        submitForm() {
+            this.errors = []
+
+            if (this.first_name === '') {
+                this.errors.push('The first name field is missing')
+            }
+            if (this.last_name === '') {
+                this.errors.push('The last name field is empty')
+            }
+        }
     },
 
     computed: {
