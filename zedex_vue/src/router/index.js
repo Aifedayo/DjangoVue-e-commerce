@@ -7,6 +7,7 @@ import Search from '../views/Search.vue'
 import Cart from '../views/Cart.vue'
 import SignUp from '../views/SignUp.vue'
 import Login from '../views/Login.vue'
+import MyAccount from '../views/MyAccount.vue'
 
 const routes = [
   {
@@ -51,6 +52,14 @@ const routes = [
     path: '/log-in/',
     name: 'Login',
     component: Login
+  },
+  {
+    path: 'my-account',
+    name: 'myAccount',
+    component: MyAccount,
+    meta: {
+      requireLogin: true
+    }
   }
 ]
 
