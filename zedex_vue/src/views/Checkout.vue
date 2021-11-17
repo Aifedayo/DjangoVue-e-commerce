@@ -60,6 +60,12 @@
                                 <input type="email" class="input" v-model="email">
                             </div>
                         </div>
+                        <div class="field">
+                            <label>Phone </label>
+                            <div class="control">
+                                <input type="number" class="input" v-model="phone">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
