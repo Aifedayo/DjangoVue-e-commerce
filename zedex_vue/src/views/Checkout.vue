@@ -6,7 +6,7 @@
             </div>
 
             <div class="column is-12 box">
-                <table class="table is-fullwidth" v-if="cartTotalLength">
+                <table class="table is-fullwidth">
                     <thead>
                         <tr>
                             <th>Product</th>
@@ -15,6 +15,24 @@
                             <th>Total</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        <tr
+                            v-for="item in cart.item"
+                            v-bind:key="item.product.id"
+                        >
+                            <td>{{ item.product.name }}</td>
+                            <td>{{ item.product.price }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>${{ getItemTotal(item).toFixed(2) }}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="2">Total</td>
+                            <td>{{ cartTotalLength }}</td>
+                            <td>${{ cartTotalPrice.toFixed(2) }}</td>
+                        </tr>
+                    </tfoot>
                 </table>
             </div>
         </div>
