@@ -4,11 +4,27 @@
             <div class="column is-12">
                 <h1 class="title">Checkout</h1>
             </div>
+
+            <div class="column is-12 box">
+                <table class="table is-fullwidth" v-if="cartTotalLength">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Quantity</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
+
+import axios from 'axios'
+
 export default {
     name: 'Checkout',
     data() {
