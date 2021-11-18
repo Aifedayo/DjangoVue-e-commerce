@@ -150,6 +150,18 @@ export default {
             if (this.last_name === '') {
                 this.errors.push('The last name field is empty')
             }
+            if (this.ermail === '') {
+                this.errors.push('The email field is missing')
+            }
+            if (this.phone === '') {
+                this.errors.push('The phone field is missing')
+            }
+            if (this.address === '') {
+                this.errors.push('The address field is missing')
+            }
+            if (this.zipcode === '') {
+                this.errors.push('The zip code field is missing')
+            }
         }
     },
 
