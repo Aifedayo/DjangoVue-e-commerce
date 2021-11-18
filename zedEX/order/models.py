@@ -10,3 +10,4 @@ class Order(models.Model):
     email = models.CharField(max_length=100)
     address = models.CharField(max_length=100)
     zipcode = models.CharField(max_length=100)
+    place = models.CharField(max_length=100)
