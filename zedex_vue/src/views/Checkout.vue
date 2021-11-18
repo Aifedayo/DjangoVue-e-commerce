@@ -162,6 +162,9 @@ export default {
             if (this.zipcode === '') {
                 this.errors.push('The zip code field is missing')
             }
+            if (this.place === '') {
+                this.errors.push('The place field is missing')
+            }
         }
     },
 
