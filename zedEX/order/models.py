@@ -24,4 +24,4 @@ class Order(models.Model):
 
 
 class OrderItem(models.Model):
-    pass
+    order = models.ForeignKey(Order, related_name='items', on_delete=models.CASCADE)
