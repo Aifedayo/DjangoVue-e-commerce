@@ -21,3 +21,7 @@ class Order(models.Model):
 
     def __str__(self):
         return self.first_name
+
+
+class OrderItem(models.Model):
+    pass
