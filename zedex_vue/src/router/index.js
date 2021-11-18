@@ -72,6 +72,14 @@ const routes = [
     meta: {
       requireLogin: true
     }
+  },
+  {
+    path: '/success',
+    name: 'Success',
+    component: Success,
+    meta: {
+      requireLogin: true
+    }
   }
 ]
 
