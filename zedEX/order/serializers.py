@@ -31,3 +31,6 @@ class OrderSerializer(serializers.ModelSerializer):
             "stripe_token",
             "items",
         )
+
+    def create(self, validated_data):
+        items_data = validated_data.pop('items')
