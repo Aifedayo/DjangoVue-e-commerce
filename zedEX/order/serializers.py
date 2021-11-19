@@ -13,3 +13,21 @@ class OrderItemSerializer(serializers.ModelSerializer):
             'product',
             'quantity',
         )
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Order
+        fields = (
+            "id",
+            "first_name",
+            "last_name",
+            "email",
+            "address",
+            "zipcode",
+            "place",
+            "phone",
+            "stripe_token",
+            "items",
+        )
