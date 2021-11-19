@@ -6,4 +6,10 @@ from product.serializers import ProductSerializer
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
-    
+    class Meta:
+        model = OrderItem
+        fields = (
+            'price',
+            'product',
+            'quantity',
+        )
