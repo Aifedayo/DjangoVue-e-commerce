@@ -25,7 +25,7 @@ SECRET_KEY = 'lutfjbby-_7#6s9kht*^btz8hmgpo#8dkn0=m22pl#nqqeini_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 STRIPE_SECRET_KEY = 'sk_test_51JxZFaDXAeyOBHeYgYpgrLLYqYhRdgRrQKb7Cdtql0CmWwXgKvnXBuLDLyhzpNqfgVee5824jBavuLP361lnhH9t00rxaEYK98'
 
@@ -53,6 +53,22 @@ INSTALLED_APPS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080"
 ]
+
+#configure DRF
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
+}
+
+# configure Djoser
+DJOSER = {
+    "USER_ID_FIELD": "username"
+}
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -49,7 +49,7 @@ const routes = [
     component: Cart
   },
   {
-    path: '/sign-up/',
+    path: '/sign-up',
     name: 'SignUp',
     component: SignUp
   },

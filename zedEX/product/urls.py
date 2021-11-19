@@ -9,3 +9,8 @@ urlpatterns = [
     path('products/<slug:category_slug>/', views.CategoryDetail.as_view()),
 
 ]
+
+accounts_urlpatterns = [
+    path('api/v1/', include('djoser.urls')),
+    path('api/v1/', include('djoser.urls.authtoken')),
+]
