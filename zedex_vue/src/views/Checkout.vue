@@ -207,6 +207,16 @@ export default {
                 'items': this.items,
                 'stripe_token': token.id
             }
+
+            await axios
+                .post('/api/v1/checkout/', data)
+                .then(response => {
+                    this.$store.commit('clearCart')
+                    this.$router.push('/cart/success')
+                })
+                .catch(error => {
+                    this.errors.push('Something went wrong. Please try again')
+                })
         }
     },
 
