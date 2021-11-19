@@ -195,6 +195,11 @@ export default {
 
                 items.push(obj)
             }
+
+            const data = {
+                'first_name': this.first_name,
+                'last_name': this.last_name,
+            }
         }
     },
 
