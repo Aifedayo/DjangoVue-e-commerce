@@ -165,6 +165,22 @@ export default {
             if (this.place === '') {
                 this.errors.push('The place field is missing')
             }
+
+            if (!this.errors.length) {
+                this.$store.commit('setIsLoading', true)
+
+                this.stripe.createToken(this.card).then(result => {
+                    if (result.error) {
+                        this.$store.commit('setIsLoading', false)
+
+                        this.errors.push('Something went wrong with Stripe. Please try again')
+
+                        console.log(result.error.message)
+                    } else {
+                        this.stripeTokenHandler(result.token)
+                    }
+                })
+            }
         }
     },
 
