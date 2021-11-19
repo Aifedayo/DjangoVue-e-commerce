@@ -186,7 +186,14 @@ export default {
             const items = []
 
             for (let i = 0; i < this.cart.items.length; i++) {
-                const items
+                const items = this.cart.items[i]
+                const obj = {
+                    product: item.product.id,
+                    quantity: item.quantity,
+                    price: item.product.price * item.quantity
+                }
+
+                items.push(obj)
             }
         }
     },
