@@ -181,6 +181,13 @@ export default {
                     }
                 })
             }
+        },
+        async stripeTokenHandler(token) {
+            const items = []
+
+            for (let i = 0; i < this.cart.items.length; i++) {
+                const items
+            }
         }
     },
 
