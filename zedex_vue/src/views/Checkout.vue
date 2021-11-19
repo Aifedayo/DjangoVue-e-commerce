@@ -94,13 +94,12 @@
 
                     <hr>
                 </div>
-                <div id="card-element" class="mb-5">
+                <div id="card-element" class="mb-5"></div>
 
-                    <template v-if="cartTotalLength">
-                        <hr>
-                        <button class="button is-dark m-3" @click="submitForm">Pay with Stripe</button>
-                    </template>
-                </div>
+                <template v-if="cartTotalLength">
+                    <hr>
+                    <button class="button is-dark m-3" @click="submitForm">Pay with Stripe</button>
+                </template>
             </div>
         </div>
     </div>
@@ -194,7 +193,7 @@ export default {
             const items = []
 
             for (let i = 0; i < this.cart.items.length; i++) {
-                const items = this.cart.items[i]
+                const item = this.cart.items[i]
                 const obj = {
                     product: item.product.id,
                     quantity: item.quantity,
@@ -241,7 +240,6 @@ export default {
 
         cartTotalPrice() {
             return this.cart.items.reduce((acc, curVal)=> {
-                console.log(curVal.product.price);
                 return acc += curVal.product.price * curVal.quantity
             }, 0)
         },
