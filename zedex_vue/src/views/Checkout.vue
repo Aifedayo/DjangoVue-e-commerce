@@ -199,6 +199,13 @@ export default {
             const data = {
                 'first_name': this.first_name,
                 'last_name': this.last_name,
+                'email': this.email,
+                'address': this.address,
+                'zipcode': this.zipcode,
+                'place': this.place,
+                'phone': this.phone,
+                'items': this.items,
+                'stripe_token': token.id
             }
         }
     },
