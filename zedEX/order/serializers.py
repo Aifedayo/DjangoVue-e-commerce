@@ -40,6 +40,7 @@ class MyOrderSerializer(serializers.ModelSerializer):
             "phone",
             "stripe_token",
             "items",
+            "paid_amount"
         )
 
 
