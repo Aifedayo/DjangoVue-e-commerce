@@ -20,6 +20,7 @@
                 v-bind:key="order.id"
                 v-bind:order="order"
             />
+        </div>
     </div>
 </template>
 
@@ -59,6 +60,10 @@ export default {
                 .then(response => {
                     this.orders = response.data
                 })
+                .catch(error => {
+                    console.log(error)
+                })
+            this.$store.commit('setIsLoading', false)
         }
     }
 }
