@@ -35,6 +35,12 @@ export default {
         OrderSummary
     },
 
+    data() {
+        return {
+            orders: []
+        }
+    },
+
     mounted() {
         document.title = 'My account | zedEX'
     },
