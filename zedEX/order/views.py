@@ -38,3 +38,8 @@ def checkout(request):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
             
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+class OrdersList(APIView):
+    authentication_classes = [authentication.TokenAuthentication]
+    permission_classes = [permissions.IsAuthenticated]
