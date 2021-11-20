@@ -34,6 +34,10 @@ export default {
         OrderSummary
     },
 
+    mounted() {
+        document.title = 'My account | zedEX'
+    },
+
     methods: {
         logout() {
             axios.defaults.headers.common['Authorization'] = ""
