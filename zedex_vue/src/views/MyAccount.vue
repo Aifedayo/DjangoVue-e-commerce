@@ -26,8 +26,13 @@
 <script>
 import axios from 'axios'
 
+import OrderSummary from '@/components/OrderSummary.vue'
+
 export default {
     name: 'MyAccount',
+    component: {
+        OrderSummary
+    },
 
     methods: {
         logout() {
