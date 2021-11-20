@@ -49,6 +49,16 @@ export default {
             this.$store.commit('removeToken')
 
             this.$router.push('/')
+        },
+
+        getMyOrders() {
+            this.$store.commit('setIsLoading', true)
+
+            await axios
+                .get('/api/v1/orders')
+                .then(response => {
+                    this.orders = response.data
+                })
         }
     }
 }
