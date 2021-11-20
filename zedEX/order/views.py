@@ -11,7 +11,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 
 from .models import Order, OrderItem
-from .serializers import OrderSerializer
+from .serializers import OrderSerializer, MyOrderSerializer
 
 # Create your views here.
 @api_view(['POST'])
